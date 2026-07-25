@@ -1,0 +1,157 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-terracotta: var(--terracotta);
+  --color-terracotta-foreground: var(--terracotta-foreground);
+  --color-cream: var(--cream);
+  --color-clay: var(--clay);
+  --color-leaf: var(--leaf);
+  --color-saffron: var(--saffron);
+  --color-whatsapp: var(--whatsapp);
+  --color-ink: var(--ink);
+
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.875rem;
+
+  /* Brand */
+  --background: oklch(0.985 0.012 85);          /* warm cream */
+  --foreground: oklch(0.22 0.05 250);           /* trustworthy deep blue */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.05 250);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.05 250);
+
+  --primary: oklch(0.58 0.16 38);               /* terracotta */
+  --primary-foreground: oklch(0.985 0.012 85);
+  --secondary: oklch(0.94 0.03 85);             /* soft cream */
+  --secondary-foreground: oklch(0.22 0.05 250);
+  --muted: oklch(0.95 0.02 85);
+  --muted-foreground: oklch(0.45 0.04 250);
+  --accent: oklch(0.62 0.16 145);               /* farm green */
+  --accent-foreground: oklch(0.985 0.012 85);
+  --destructive: oklch(0.6 0.22 27);
+  --destructive-foreground: oklch(0.985 0 0);
+
+  --border: oklch(0.9 0.02 70);
+  --input: oklch(0.92 0.02 70);
+  --ring: oklch(0.58 0.16 38);
+
+  /* Custom semantic tokens */
+  --terracotta: oklch(0.58 0.16 38);
+  --terracotta-foreground: oklch(0.985 0.012 85);
+  --cream: oklch(0.97 0.025 85);
+  --clay: oklch(0.72 0.13 50);
+  --leaf: oklch(0.58 0.16 145);
+  --saffron: oklch(0.78 0.17 70);
+  --whatsapp: oklch(0.65 0.17 155);
+  --ink: oklch(0.22 0.05 250);
+
+  /* Gradients */
+  --gradient-hero: linear-gradient(135deg, oklch(0.97 0.025 85) 0%, oklch(0.92 0.05 60) 100%);
+  --gradient-terracotta: linear-gradient(135deg, oklch(0.62 0.17 40) 0%, oklch(0.52 0.15 30) 100%);
+  --gradient-leaf: linear-gradient(135deg, oklch(0.62 0.16 145) 0%, oklch(0.5 0.14 150) 100%);
+  --gradient-puja: linear-gradient(135deg, oklch(0.85 0.13 75) 0%, oklch(0.65 0.17 45) 100%);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px -4px oklch(0.4 0.08 40 / 0.15);
+  --shadow-warm: 0 10px 40px -10px oklch(0.58 0.16 38 / 0.35);
+  --shadow-card: 0 2px 12px -2px oklch(0.3 0.05 250 / 0.08);
+  --shadow-float: 0 20px 50px -15px oklch(0.3 0.05 250 / 0.15);
+
+  /* Sidebar (unused but kept for shadcn) */
+  --sidebar: oklch(0.985 0.012 85);
+  --sidebar-foreground: oklch(0.22 0.05 250);
+  --sidebar-primary: oklch(0.58 0.16 38);
+  --sidebar-primary-foreground: oklch(0.985 0.012 85);
+  --sidebar-accent: oklch(0.94 0.03 85);
+  --sidebar-accent-foreground: oklch(0.22 0.05 250);
+  --sidebar-border: oklch(0.9 0.02 70);
+  --sidebar-ring: oklch(0.58 0.16 38);
+
+  --chart-1: oklch(0.58 0.16 38);
+  --chart-2: oklch(0.62 0.16 145);
+  --chart-3: oklch(0.78 0.17 70);
+  --chart-4: oklch(0.45 0.1 250);
+  --chart-5: oklch(0.72 0.13 50);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-sans { font-family: var(--font-sans); }
+
+  .bg-gradient-hero { background-image: var(--gradient-hero); }
+  .bg-gradient-terracotta { background-image: var(--gradient-terracotta); }
+  .bg-gradient-leaf { background-image: var(--gradient-leaf); }
+  .bg-gradient-puja { background-image: var(--gradient-puja); }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-warm { box-shadow: var(--shadow-warm); }
+  .shadow-card { box-shadow: var(--shadow-card); }
+  .shadow-float { box-shadow: var(--shadow-float); }
+
+  .texture-paper {
+    background-image:
+      radial-gradient(oklch(0.58 0.16 38 / 0.04) 1px, transparent 1px),
+      radial-gradient(oklch(0.58 0.16 145 / 0.03) 1px, transparent 1px);
+    background-size: 24px 24px, 32px 32px;
+    background-position: 0 0, 12px 12px;
+  }
+}
